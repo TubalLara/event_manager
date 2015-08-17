@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get '/login',   to: 'sessions#new'
+  post '/login',  to: 'sessions#create'
+  match '/logout',  to: 'sessions#destroy', via: 'delete'
+
+  match '/signup',    to: 'users#new',    via: 'get'
+
   resources :event_players
   resources :users
   resources :events
