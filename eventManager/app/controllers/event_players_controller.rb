@@ -1,0 +1,3 @@
+class EventPlayersController < ApplicationController
+	
+end
