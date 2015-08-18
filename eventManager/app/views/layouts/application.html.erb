@@ -9,30 +9,54 @@
 	  <%= javascript_include_tag 'application' %>
 	  <%= csrf_meta_tags %>
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 	 
 </head>
 <body padding-top: "70px">
-	<nav class="navbar navbar-default navbar-static-top">
-	  <div class="container">
-	    <div id="top_bar">
-		    <% if logged_in? %>
-		      <p>Hello,  <%= current_user.name %> - 
-		      <%= link_to 'Logout', logout_path, method: :delete %></p>
-		    <% else %>
-		    	<p>
-		      	  <%= link_to 'Signup', signup_path %> |
-		      	  <%= link_to 'Login', login_path %>
-		    	</p>
-		    <% end %>
+<div class="container">
+	<div class="row">
+		<div class="row">
+			<nav class="navbar navbar-default navbar-fixed-top">
+			  <div class="container">
+			    <div id="top_bar">
+				    <% if logged_in? %>
+				      <p>Hello,  <%= current_user.name %> - </p>
+				      <span class="label label-warning">
+				      	<%= link_to 'Logout', logout_path, method: :delete %>
+				      </span>		      
+				    <% else %>
+				    	<span class="label label-success">
+				      	  <%= link_to 'Signup', signup_path %> |
+				      	  <%= link_to 'Login', login_path %>
+				    	</span>
+				    <% end %>
+				</div>
+			  </div>
+			</nav>
 		</div>
-	  </div>
-	</nav>
-	<% flash.each do |key, msg| %>
-		<%= content_tag :div, msg, id: key, class: "alert alert-danger", role: "alert", style: "color: red;" %>
-	<% end %>
 
-<%= yield %>
+		<div class="row">
+			<% flash.each do |key, msg| %>
+				<%= content_tag :div, msg, id: key, class: "alert alert-danger", role: "alert", style: "color: red;" %>
+			<% end %>
+		</div>
+	  
+		
+	</div>
+	<div class="row">
+		<div class="container">
+			<%= yield %>
+		</div>
+		
+	</div>
+</div>
+	
+	
+	
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
 </body>
 </html>

@@ -10,5 +10,15 @@
   <%= @event.introduction %>
 </p>
 
+<p>
+  <strong>From:</strong>
+  <%= @event.begin_date %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @event.finish_date %>
+</p>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
