@@ -1,0 +1,24 @@
+<!-- <p id="notice"><%= notice %></p> -->
+
+<p>
+  <strong>Name:</strong>
+  <%= @place.name %>
+</p>
+
+<p>
+  <strong>Direction:</strong>
+  <%= @place.direction %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <a href=<%= @place.url %>><%= @place.url %></a> 
+</p>
+
+<p>
+  <strong>Postal Code:</strong>
+  <%= @place.postal_code %>
+</p>
+
+<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %>

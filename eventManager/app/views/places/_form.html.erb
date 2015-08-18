@@ -1,0 +1,34 @@
+<%= form_for(@place) do |f| %>
+  <% if @place.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</h2>
+
+      <ul>
+      <% @place.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="input-group">
+    <%= f.label :direction %><br>
+    <%= f.text_field :direction %>
+  </div>
+  <div class="input-group">
+    <%= f.label :postal_code %><br>
+    <%= f.text_field :postal_code %>
+  </div>
+  <div class="input-group">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+
+  <div>
+    <br><%= f.submit %>
+  </div>
+<% end %>
