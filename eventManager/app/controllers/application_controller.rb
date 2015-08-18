@@ -4,6 +4,21 @@ class ApplicationController < ActionController::Base
   unless Rails.env.development?
     protect_from_forgery with: :exception
   end
+
+  def authorize_user
+    unless current_user
+      flash[:message] = 'Please log in or register to access this page'
+      redirect_to events_path      
+    end
+  end
+
+  def admin_only
+    unless current_user && current_user.role == 'admin'
+      flash[:access_denied] = "Access denied. You must be admin to see this page"
+      redirect_to events_path        
+    end
+  end
+
   helper_method :current_user
     def current_user
       if @current_user.nil?

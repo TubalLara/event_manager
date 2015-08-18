@@ -20,6 +20,14 @@
     <%= f.label :introduction %><br>
     <%= f.text_field :introduction %>
   </div>
+  <div class="input-group">
+    From: <br>
+    <%= f.datetime_field :begin_date %>
+  </div>
+  <div class="input-group">
+    to: <br><input type="text">
+    <%= f.datetime_field :finish_date %>
+  </div>
   <div>
     <br><%= f.submit %>
   </div
