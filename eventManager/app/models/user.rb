@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   	after_initialize :set_default_role, :if => :new_record?
   	def set_default_role
   		unless self.role
-  			self.role = :User  			
+  			self.role = :user  			
   		end
   	end
 

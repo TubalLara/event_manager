@@ -31,8 +31,6 @@ class EventsController < ApplicationController
     @event = Event.new
     @event.places = @places #so I can get the places for the new event form
     
-    
-
   end
 
   # GET /events/1/edit
@@ -76,6 +74,14 @@ class EventsController < ApplicationController
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+    end
+  end
+
+  def join #for a user to join an event
+    @event = Event.find(params[:id]) 
+    @event.users << current_user
+    respond_to do |format|
+      format.html { redirect_to events_url, notice: 'You have joined ' + @event.name + ' event successfully' }
     end
   end
   

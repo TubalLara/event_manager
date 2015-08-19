@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   match '/signup',    to: 'users#new',    via: 'get'
 
+  # Example of named route that can be invoked with purchase_url(id: product.id)
+  get 'events/:id/join' => 'events#join', as: :join
+
   resources :event_players
   resources :users
   resources :events

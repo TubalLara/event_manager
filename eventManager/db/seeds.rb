@@ -15,4 +15,4 @@ place2 = Place.create(name: 'place2')
 
 user1 = User.create(name: 'John', email: 'john@john.com', role: 'user', password: '12345678')
 user2 = User.create(name: 'Jim', email: 'jim@jim.com', role: 'user', password: '12345678')
-user3 = User.create(name: 'Albert', email: 'albert@albert.com', admin: 'admin', password: '12345678')
+user3 = User.create(name: 'Albert', email: 'albert@albert.com', role: 'admin', password: '12345678')
