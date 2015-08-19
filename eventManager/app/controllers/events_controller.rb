@@ -1,27 +1,50 @@
 class EventsController < ApplicationController
-	# GET /events
+	@places = Place.all
+
+  # GET /events
   def index
     @events = Event.all
+    
+    # for event in @events
+    #   event.places = @places
+    #   place = event.places.find(event.place_id)
+    #   event.places = @place
+    # end
+
   end
 
   # GET /events/1
   def show
-    @event = Event.find(params[:id])
+    @places = Place.all
+    @event = Event.find(params[:id])    
+    @event.places = @places
+    id = @event.place_id
+    @place = @places.find(id)
+    @event.places = @place
+
   end
 
   # GET /events/new
   def new
+    @places = Place.all
     @event = Event.new
+    @event.places = @places #so I can get the places for the new event form
+    
+    
+
   end
 
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
+    @places = Place.all
+    @event.places = @places #so I can get the places for the edit event form
   end
 
   # POST /events
   def create
     @event = Event.new(event_params)
+    
 
     respond_to do |format|
       if @event.save
@@ -58,7 +81,7 @@ class EventsController < ApplicationController
   private
 	  def event_params
 	    params.require(:event).permit(
-	      :name, :introduction, :place_id, :begin_date, :finish_date)
+	      :name, :introduction, :place_id, :begin_date, :finish_date, :places)
 	  end
 
 	

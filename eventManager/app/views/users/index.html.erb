@@ -1,6 +1,6 @@
-<h1>Listing Users</h1>
-
-<table>
+<h2 class="bg-primary">Listing Users</h1>
+<%= link_to 'New User', new_user_path, role: "button", class: "btn btn-success"  %>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -14,9 +14,9 @@
       <tr>
         <td><%= user.name %> <br> </td>
         <td><%= user.email %> <br> </td>
-        <td><%= link_to 'Show', user %> <br> </td>
-        <td><%= link_to 'Edit', edit_user_path(user)%> <br> </td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+        <td><%= link_to 'Show', user, role: "button", class: "btn btn-default" %> <br> </td>
+        <td><%= link_to 'Edit', edit_user_path(user), role: "button", class: "btn btn-default" %> <br> </td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, role: "button", class: "btn btn-default" %> </td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,3 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
