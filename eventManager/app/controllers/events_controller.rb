@@ -5,11 +5,12 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     
-    # for event in @events
-    #   event.places = @places
-    #   place = event.places.find(event.place_id)
-    #   event.places = @place
-    # end
+    for event in @events
+      @places = Place.all
+      event.places = @places
+      @place = event.places.find(event.place_id)
+      event.places = @place
+    end
 
   end
 

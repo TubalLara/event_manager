@@ -5,7 +5,7 @@
     <tr>
       <th>Name</th>
       <th>Introduction</th>
-      <!-- <th>Place</th> -->
+      <th>Place</th>
       <th>From:</th>
       <th>To:</th>
       <th colspan="3"></th>
@@ -17,7 +17,7 @@
       <tr>
         <td><%= event.name %> <br> </td>
         <td><%= event.introduction %> <br> </td>
-        
+        <td><%= event.places.name %> <br> </td>        
         <td><%= event.begin_date %> <br> </td>
         <td><%= event.finish_date %> <br> </td>
         <td><%= link_to 'Show', event, role: "button", class: "btn btn-default" %> <br> </td>
