@@ -18,7 +18,7 @@
         <tr>
           <td><%= place.name %> <br> </td>
           <td><%= place.direction %> <br> </td>
-          <td><a href=<%= place.url %>><%= place.url %></a> <br> </td>
+          <td><a target ="blank" href=<%= place.url %>><%= place.url %></a> <br> </td>
           <td><%= place.postal_code %> <br> </td>
           <td><%= link_to 'Show', place, role: "button", class: "btn btn-default" %> <br> </td>
           <td><%= link_to 'Edit', edit_place_path(place), role: "button", class: "btn btn-default"%> <br> </td>

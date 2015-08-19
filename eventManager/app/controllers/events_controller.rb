@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     
     for event in @events
       @places = Place.all
-      event.places = @places
+      event.places = @places      
       @place = event.places.find(event.place_id)
       event.places = @place
     end
