@@ -23,7 +23,7 @@
 				      <p>Hello,  <%= current_user.name %> - </p>
 				      <span class="label label-warning">
 				      	<%= link_to 'Logout', logout_path, method: :delete %> |
-						<%= link_to 'My Profile', current_user%>
+						<%= link_to 'Profile', current_user%>
 				      </span>		      
 				    <% else %>
 				    	<span class="label label-success">

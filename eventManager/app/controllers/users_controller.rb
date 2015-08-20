@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  before_action :authorize_user, only: [:show]
-  before_action :admin_only, only: [:index]
+  # before_action :authorize_user, only: [:show]
+  # before_action :admin_only, only: [:index]
   # GET /users
   def index
     @users = User.all
@@ -13,8 +13,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def my_profile
+  def profile
     @user = current_user
+    @events = Event.all
+    @events = @events.future_events(Date.today)
     render 'show'
   end
 
@@ -35,7 +37,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        #WelcomeMailer.welcome_email(@user).deliver_now
+        WelcomeMailer.welcome_email(@user).deliver_now
         format.html { redirect_to @user, notice: 'User was successfully created.' }
 
       else

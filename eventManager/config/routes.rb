@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   # Example of named route that can be invoked with purchase_url(id: product.id)
   get 'events/:id/join' => 'events#join', as: :join
 
-  resources :event_players
+
+
+  resources :event_players, only: [:create]
   resources :users
   resources :events
   resources :places

@@ -1,29 +1,31 @@
-<!-- <p id="notice"><%= notice %></p> -->
+<div class="row">
+  <div class="col-md-3">
+    <p>
+      <strong>Name:</strong>
+      <%= @event.name %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @event.name %>
-</p>
+    <p>
+      <strong>Introduction:</strong>
+      <%= @event.introduction %>
+    </p>
 
-<p>
-  <strong>Introduction:</strong>
-  <%= @event.introduction %>
-</p>
+    <p>
+      <strong>Place:</strong>
+      <%= @event.places.name %>
+    </p>
 
-<p>
-  <strong>Place:</strong>
-  <%= @event.places.name %>
-</p>
+    <p>
+      <strong>From:</strong>
+      <%= @event.begin_date %>
+    </p>
 
-<p>
-  <strong>From:</strong>
-  <%= @event.begin_date %>
-</p>
+    <p>
+      <strong>To:</strong>
+      <%= @event.finish_date %>
+    </p>
 
-<p>
-  <strong>To:</strong>
-  <%= @event.finish_date %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+    <%= link_to 'Edit', edit_event_path(@event) %> |
+    <%= link_to 'Back', events_path %>
+  </div>
+</div>

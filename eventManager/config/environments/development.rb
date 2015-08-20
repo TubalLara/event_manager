@@ -21,8 +21,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address => "smtp.gmail.com",
     :port => 587,
-    :user_name => ENV['larp.event.manager@gmail.com'],
-    :password => ENV['uwtrgvyedxshixak'],
+    :user_name => 'larp.event.manager@gmail.com',
+    :password => 'uwtrgvyedxshixak',
     :authentication => "plain",
     :openssl_verify_mode  => 'none',
     :enable_starttls_auto => true

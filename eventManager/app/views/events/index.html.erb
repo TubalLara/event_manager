@@ -15,7 +15,7 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to 'Join', join_url(id: event.id), role: "button", class: "btn btn-success" %> <br> </td>
+        <td><%= link_to 'Join', event_players_path(event_id: event.id), method: :post, role: "button", class: "btn btn-success"%> <br> </td>
         <td><%= event.name %> <br> </td>
         <td><%= event.introduction %> <br> </td>
         <td><%= event.places.name %> <br> </td>        
