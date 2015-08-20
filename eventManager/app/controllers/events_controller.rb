@@ -1,9 +1,12 @@
 class EventsController < ApplicationController
+  
 	@places = Place.all
 
   # GET /events
   def index
     @events = Event.all
+    #here is just listing the events that starts after today
+    @events = @events.future_events(Date.today)
     
     for event in @events
       @places = Place.all
@@ -30,7 +33,7 @@ class EventsController < ApplicationController
     @places = Place.all
     @event = Event.new
     @event.places = @places #so I can get the places for the new event form
-    
+    @user = current_user
   end
 
   # GET /events/1/edit
@@ -58,6 +61,7 @@ class EventsController < ApplicationController
 
   # PATCH/PUT /events/1
   def update
+    @user = current_user
     @event = Event.find(params[:id])
     respond_to do |format|
       if @event.update(event_params)
@@ -88,7 +92,7 @@ class EventsController < ApplicationController
   private
 	  def event_params
 	    params.require(:event).permit(
-	      :name, :introduction, :place_id, :begin_date, :finish_date, :places)
+	      :name, :introduction, :place_id, :begin_date, :finish_date, :places, :is_secret, :creator_id)
 	  end
 
 	
