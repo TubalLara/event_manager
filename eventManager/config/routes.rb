@@ -4,16 +4,17 @@ Rails.application.routes.draw do
   match '/logout',  to: 'sessions#destroy', via: 'delete'
 
   match '/signup',    to: 'users#new',    via: 'get'
+  match '/welcome',    to: 'welcome#show',    via: 'get'
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  get 'events/:id/join' => 'events#join', as: :join
+  # get 'events/:id/join' => 'events#join', as: :join
 
 
 
-  resources :event_players, only: [:create]
+  resources :attendances, only: [:create]
   resources :users
   resources :events
   resources :places
+  resources :welcome, only: [:show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-	has_many :event_players
-	has_many :events, :through => :event_players
+	has_many :attendances
+	has_many :events, :through => :attendances
 
 	has_secure_password
 
@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
   			self.role = :user  			
   		end
   	end
+
+    def attend(event)
+      attendances.create(event_id: event.id)
+    end
 
     
 
