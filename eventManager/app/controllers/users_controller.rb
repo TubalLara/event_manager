@@ -13,13 +13,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # def profile
-  #   @user = current_user
-  #   @events = Event.all
-  #   @events = @events.future_events(Date.today)
-  #   render 'show'
-  # end
-
   # GET /users/new
   def new
     @user = User.new

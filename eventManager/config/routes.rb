@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   match '/signup',    to: 'users#new',    via: 'get'
   match '/welcome',    to: 'welcome#show',    via: 'get'
+  root 'welcome#index'
 
   # get 'events/:id/join' => 'events#join', as: :join
 
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
   resources :users
   resources :events
   resources :places
-  resources :welcome, only: [:show]
+  resources :welcome, only: [:show, :index]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
