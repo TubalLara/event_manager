@@ -9,8 +9,8 @@ class WelcomeController < ApplicationController
 
   def index #this is the home page
     @user = current_user
-    @events = Event.all
-    @events = @events.future_events(Date.today)
+    @events = @user.events.future_events(Date.today)
+    
     if @user
       render 'show'
     else

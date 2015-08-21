@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :attendances, only: [:create]
+  resources :attendances, only: [:create, :index]
   resources :users
   resources :events
   resources :places

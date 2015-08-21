@@ -16,8 +16,8 @@
 	    	<%= render 'users/show' %>
 	    </div>
 	    <div role="tabpanel" class="tab-pane" id="characters">Here comes your characters</div>
-	    <div role="tabpanel" class="tab-pane" id="events">
-	    	
+	    <div role="tabpanel" class="tab-pane" id="events"> 
+	      	<%= render partial: "events/index", :locals => {:events => @events}  %>
 	    </div>
 	  </div>
 

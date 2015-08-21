@@ -13,12 +13,12 @@
   </thead>
 
   <tbody>
-    <% @events.each do |event| %>
+    <% events.each do |event| %>
       <tr>
         <td><%= link_to 'Join', attendances_path(event_id: event.id), method: :post, role: "button", class: "btn btn-success"%> <br> </td>
         <td><%= event.name %> <br> </td>
         <td><%= event.introduction %> <br> </td>
-        <td><%= event.places.name %> <br> </td>        
+        <td><%= event.places.name if event.places %> <br> </td>        
         <td><%= event.begin_date %> <br> </td>
         <td><%= event.finish_date %> <br> </td>
         <td><%= link_to 'Show', event, role: "button", class: "btn btn-default" %> <br> </td>

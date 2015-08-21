@@ -8,13 +8,11 @@ class AttendancesController < ApplicationController
         end
     end
 
-    def index
-      @user = current_user
-      @events = User.find_by(id: @user.id).events.order(updated_at: :asc)
-      SELECT users.* FROM users JOIN events ON users.id = events.user_id WHERE user_id = 8;
-
-
-    end
+    # def index
+    #   @user = current_user
+    #   @events = @user.events.future_events(Date.today)
+      
+    # end
 
 
 end
