@@ -19,8 +19,11 @@
           <td><%= organization.description %> <br> </td>
           <td><a target ="blank" href=<%= organization.url %>><%= organization.url %></a> <br> </td>
           <td><%= link_to 'Show', organization, role: "button", class: "btn btn-default" %> <br> </td>
-          <td><%= link_to 'Edit', edit_organization_path(organization), role: "button", class: "btn btn-default"%> <br> </td>
-          <td><%= link_to 'Destroy', organization, method: :delete, role: "button", class: "btn btn-default", data: { confirm: 'Are you sure?' } %> </td>
+          <% if current_user.role === "admin" %>
+            <td><%= link_to 'Edit', edit_organization_path(organization), role: "button", class: "btn btn-default"%> <br> </td>
+            <td><%= link_to 'Destroy', organization, method: :delete, role: "button", class: "btn btn-default", data: { confirm: 'Are you sure?' } %> </td>
+            <td><%= link_to 'Ask for Join', user_organizations_path(organization_id: organization.id), method: :post, role: "button", class: "btn btn-success"%> <br> </td>
+          <% end %>
         </tr>
       <% end %>
 

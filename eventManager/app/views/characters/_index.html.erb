@@ -20,6 +20,9 @@
           <td><%= link_to 'Show', character, role: "button", class: "btn btn-default" %> <br> </td>
           <td><%= link_to 'Edit', edit_character_path(character), role: "button", class: "btn btn-default" %> <br> </td>
           <td><%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' }, role: "button", class: "btn btn-default" %> </td>
+          <% if @event %>
+            <td><%= link_to 'Add to this event', assign_url(character_id: character.id, event_id: @event.id), method: :post, role: "button", class: "btn btn-success"%> <br> </td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

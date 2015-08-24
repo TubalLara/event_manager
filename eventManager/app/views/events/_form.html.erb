@@ -24,6 +24,12 @@
     Place: <br>
     <%= f.select :place_id, @event.places.collect { |p| [ p.name, p.id ] }, include_blank: true  %>
   </div>
+  <% if current_user.organizations %>
+    <div class="form-group">
+      Organization: <br>
+      <%= f.select :organization_id, current_user.organizations.collect { |p| [ p.name, p.id ] }, include_blank: true  %>
+    </div>
+  <% end %>
   <div class="form-group">
     From: <br>
     <%= f.date_field :begin_date %>

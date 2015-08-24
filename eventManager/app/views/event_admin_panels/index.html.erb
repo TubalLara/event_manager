@@ -20,12 +20,12 @@
       </div>
       <div role="tabpanel" class="tab-pane active" id="organizators">
       <% if @organizators %>
-        <%= render 'users/index', :locals => {:organizators => @users} %> %>
+        <%= render 'users/index', :locals => {:users => @organizators} %>
       <% end %>
       </div>
       <div role="tabpanel" class="tab-pane" id="characters">Here comes your characters
       <% if @characters %>
-        <%= render partial: "characters/index", :locals => {:characters => @characters}  %>
+        <%= render partial: "characters/index", :locals => {:characters => @characters, :event => @event}  %>
       <% end %>
       </div>
       <div role="tabpanel" class="tab-pane" id="users"> 

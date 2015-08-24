@@ -26,6 +26,9 @@ class EventsController < ApplicationController
     id = @event.place_id
     @place = @places.find(id)
     @event.places = @place
+    @organizations = Organization.all
+    orgid = @event.organization_id
+    @organization = @organizations.find(orgid) if @event.organization_id
 
   end
 
@@ -86,7 +89,7 @@ class EventsController < ApplicationController
   private
 	  def event_params
 	    params.require(:event).permit(
-	      :name, :introduction, :place_id, :begin_date, :finish_date, :places, :is_secret, :creator_id)
+	      :name, :introduction, :place_id, :begin_date, :finish_date, :places, :is_secret, :creator_id, :organization_id, :active)
 	  end
 
 	

@@ -4,7 +4,7 @@ class CharactersController < ApplicationController
   # GET /characters
   def index
     @characters = Character.all
-       
+    
     
   end
 

@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   match '/admin',    to: 'admin#show',    via: 'get'
+  
+  match 'assigned_characters/:character_id/:event_id',    to: 'assigned_characters#create',    via: 'post', as: :assign
+
+
 
 
   # get 'events/:id/join' => 'events#join', as: :join
@@ -22,7 +26,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :organizations
   resources :characters
-  resources :user_organizations
+  resources :user_organizations, only: [:create, :index]
   resources :assigned_characters
   resources :admin, only: [:show]
   resources :event_admin_panels, only: [:index]
