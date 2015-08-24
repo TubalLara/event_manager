@@ -15,7 +15,9 @@
 	    <div role="tabpanel" class="tab-pane active" id="profile">
 	    	<%= render 'users/show' %>
 	    </div>
-	    <div role="tabpanel" class="tab-pane" id="characters">Here comes your characters</div>
+	    <div role="tabpanel" class="tab-pane" id="characters">Here comes your characters
+				<%= render partial: "characters/index", :locals => {:characters => @characters}  %>
+	    </div>
 	    <div role="tabpanel" class="tab-pane" id="events"> 
 	      	<%= render partial: "events/index", :locals => {:events => @events}  %>
 	    </div>

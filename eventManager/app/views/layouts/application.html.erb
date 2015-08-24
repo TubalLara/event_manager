@@ -26,6 +26,9 @@
 				    	
 				      <p>Hello,  <%= current_user.name %> - </p>
 				      <span class="label label-warning">
+				      	<% if current_user.role == "admin" %>
+				      		<%= link_to 'Admin Panel', admin_path%> |
+				      	<% end%>
 				      	<%= link_to 'Logout', logout_path, method: :delete %> |
 								<%= link_to 'Profile', welcome_path%>								
 				      </span>		      

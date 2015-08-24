@@ -1,0 +1,5 @@
+class AssignedCharactersController < ApplicationController
+
+  
+
+end

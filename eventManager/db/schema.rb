@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821145306) do
+ActiveRecord::Schema.define(version: 20150824130619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assigned_characters", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "character_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "attendances", force: :cascade do |t|
     t.integer  "event_id"
@@ -24,15 +31,34 @@ ActiveRecord::Schema.define(version: 20150821145306) do
     t.boolean  "is_organizer"
   end
 
+  create_table "characters", force: :cascade do |t|
+    t.string   "name"
+    t.text     "introduction"
+    t.integer  "user_id"
+    t.integer  "organization_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.text     "introduction"
     t.integer  "place_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.date     "begin_date"
     t.date     "finish_date"
     t.boolean  "is_secret"
+    t.integer  "creator_id"
+    t.integer  "organization_id"
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "creator_id"
   end
 
@@ -43,6 +69,25 @@ ActiveRecord::Schema.define(version: 20150821145306) do
     t.string   "postal_code"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "organization_id"
+    t.integer  "event_id"
+    t.integer  "character_id"
+    t.integer  "place_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "user_organizations", force: :cascade do |t|
+    t.integer  "organization_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "users", force: :cascade do |t|

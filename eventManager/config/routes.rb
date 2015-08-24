@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   match '/welcome',    to: 'welcome#show',    via: 'get'
   root 'welcome#index'
 
+  match '/admin',    to: 'admin#show',    via: 'get'
+
+
   # get 'events/:id/join' => 'events#join', as: :join
 
 
@@ -16,6 +19,12 @@ Rails.application.routes.draw do
   resources :events
   resources :places
   resources :welcome, only: [:show, :index]
+  resources :posts
+  resources :organizations
+  resources :characters
+  resources :user_organizations
+  resources :assigned_characters
+  resources :admin, only: [:show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

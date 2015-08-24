@@ -1,0 +1,28 @@
+<div class="container">
+  
+  <h2 class="bg-primary">Listing Posts</h1>
+  <%= link_to 'New Post', new_post_path, role: "button", class: "btn btn-success" %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.title %> <br> </td>
+          <td><%= link_to 'Show', post, role: "button", class: "btn btn-default" %> <br> </td>
+          <td><%= link_to 'Edit', edit_post_path(post), role: "button", class: "btn btn-default"%> <br> </td>
+          <td><%= link_to 'Destroy', post, method: :delete, role: "button", class: "btn btn-default", data: { confirm: 'Are you sure?' } %> </td>
+        </tr>
+      <% end %>
+
+    </tbody>
+    
+  </table>
+
+  
+</div>

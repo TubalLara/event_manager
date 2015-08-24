@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% events.each do |event| %>
+    <% @events.each do |event| %>
       <tr>
         <td><%= link_to 'Join', attendances_path(event_id: event.id), method: :post, role: "button", class: "btn btn-success"%> <br> </td>
         <td><%= event.name %> <br> </td>
