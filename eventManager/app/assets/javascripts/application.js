@@ -11,6 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require join.js
+//= require text_editor.js
 //= require jquery_ujs
 //= require_tree .
