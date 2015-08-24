@@ -8,6 +8,7 @@ class EventsController < ApplicationController
     #here is just listing the events that starts after today
     @events = @events.future_events(Date.today)
     
+    
     for event in @events
       @places = Place.all
       event.places = @places      

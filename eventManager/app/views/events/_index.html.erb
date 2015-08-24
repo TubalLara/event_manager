@@ -22,8 +22,11 @@
         <td><%= event.begin_date %> <br> </td>
         <td><%= event.finish_date %> <br> </td>
         <td><%= link_to 'Show', event, role: "button", class: "btn btn-default" %> <br> </td>
-        <td><%= link_to 'Edit', edit_event_path(event), role: "button", class: "btn btn-default" %> <br> </td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, role: "button", class: "btn btn-default" %> </td>
+        <% if current_user.role === "admin" %>
+          <td><%= link_to 'Edit', edit_event_path(event), role: "button", class: "btn btn-default" %> <br> </td>
+          <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, role: "button", class: "btn btn-default" %> </td>
+          <td><%= link_to 'Admin', event_admin_panels_path(event_id: event.id), method: :get, role: "button", class: "btn btn-default" %> </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

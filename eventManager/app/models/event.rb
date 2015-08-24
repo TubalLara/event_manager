@@ -9,4 +9,6 @@ class Event < ActiveRecord::Base
   has_many :posts
 	attr_accessor :places
 
+ 
+
 end

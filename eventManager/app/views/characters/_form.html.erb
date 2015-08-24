@@ -26,6 +26,7 @@
     Organization: <br>
     <%= (f.select :organization_id, current_user.organizations.collect { |p| [ p.name, p.id ] }, include_blank: true) if current_user.organizations %>
   </div>
+  
   <div>
     <%= f.submit %>
   </div

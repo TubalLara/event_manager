@@ -1,0 +1,40 @@
+<div class="row">
+  
+  <div class="col-md-8">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">Info</a></li>
+      <li role="presentation"><a href="#organizators" aria-controls="profile" role="tab" data-toggle="tab">Organizators</a></li>
+      <li role="presentation"><a href="#characters" aria-controls="characters" role="tab" data-toggle="tab">Characters</a></li>
+      <li role="presentation"><a href="#users" aria-controls="users" role="tab" data-toggle="tab">Players</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane" id="info">Home page for the Event 
+      <%= render 'events/show', :locals => {:event => @event} %>
+      <% if @posts && @post %>
+        <%= render 'posts/show', :locals => {:post => @post} %>
+        <%= render 'posts/index', :locals => {:posts => @posts} %>
+      <% end %>
+      </div>
+      <div role="tabpanel" class="tab-pane active" id="organizators">
+      <% if @organizators %>
+        <%= render 'users/index', :locals => {:organizators => @users} %> %>
+      <% end %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="characters">Here comes your characters
+      <% if @characters %>
+        <%= render partial: "characters/index", :locals => {:characters => @characters}  %>
+      <% end %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="users"> 
+      <% if @users %>
+          <%= render partial: "users/index", :locals => {:users => @users}  %>
+      <% end %>
+      </div>
+    </div>
+
+  
+  </div>
+</div>

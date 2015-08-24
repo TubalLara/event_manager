@@ -4,7 +4,7 @@ class CharactersController < ApplicationController
   # GET /characters
   def index
     @characters = Character.all
-    #here is just listing the events that starts after today    
+       
     
   end
 
@@ -12,7 +12,8 @@ class CharactersController < ApplicationController
   def show
     
     @character = Character.find(params[:id])
-    @user = User.all.find(@character.user_id)    
+    @user = User.all.find(@character.user_id)
+    @organization = Organization.all.find(@character.organization_id)    
 
   end
 
