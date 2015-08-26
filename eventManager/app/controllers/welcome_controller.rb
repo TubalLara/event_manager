@@ -3,14 +3,12 @@ class WelcomeController < ApplicationController
     @user = current_user
     @events = Event.all
     @events = @events.future_events(Date.today)
-    render 'show'
-    
+    @characters = @user.characters if @user.characters
+    render 'show'    
   end
 
   def index #this is the home page
-    @user = current_user
-    
-    
+    @user = current_user    
     if @user
       @events = @user.events.future_events(Date.today)
       @characters = @user.characters if @user.characters
@@ -19,6 +17,4 @@ class WelcomeController < ApplicationController
       render 'index'
     end
   end
-
-
 end

@@ -1,53 +1,37 @@
 class CharactersController < ApplicationController
-
-
   # GET /characters
   def index
-    @characters = Character.all
-    
-    
+    @characters = Character.all       
   end
-
   # GET /characters/1
-  def show
-    
+  def show    
     @character = Character.find(params[:id])
-    @user = User.all.find(@character.user_id)
-    @organization = Organization.all.find(@character.organization_id)    
-
+    @creator = User.all.find(@character.creator_id) if @character.creator_id
+    @user = User.all.find(@character.user_id) if @character.user_id
+    @organization = Organization.all.find(@character.organization_id) if @character.organization_id 
   end
-
   # GET /characters/new
-  def new
-    
+  def new    
     @character = Character.new
     @user = current_user
-    @organizations = @user.organizations
-    
-    
+    @organizations = @user.organizations    
   end
-
   # GET /characters/1/edit
   def edit
     @character = Character.find(params[:id])
   end
-
   # POST /characters
   def create
     @character = Character.new(character_params)
-    
-
+    @user = current_user
     respond_to do |format|
-      if @character.save
-        
+      if @character.save        
         format.html { redirect_to @character, notice: 'Character was successfully created.' }
-
       else
         format.html { render :new }
       end
     end
   end
-
   # PATCH/PUT /characters/1
   def update
     @user = current_user
@@ -60,7 +44,6 @@ class CharactersController < ApplicationController
       end
     end
   end
-
   # DELETE /characters/1
   def destroy
     @character = Character.find(params[:id])
@@ -69,13 +52,10 @@ class CharactersController < ApplicationController
       format.html { redirect_to characters_url, notice: 'Character was successfully destroyed.' }
     end
   end
-
     
   private
     def character_params
       params.require(:character).permit(
-        :name, :introduction, :user_id, :organization_id)
+        :name, :introduction, :user_id, :organization_id, :creator_id)
     end
-
-
 end

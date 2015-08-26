@@ -11,13 +11,7 @@ Rails.application.routes.draw do
   
   match 'assigned_characters/:character_id/:event_id',    to: 'assigned_characters#create',    via: 'post', as: :assign
 
-
-
-
   # get 'events/:id/join' => 'events#join', as: :join
-
-
-
   resources :attendances, only: [:create, :index]
   resources :users
   resources :events

@@ -3,6 +3,7 @@ class EventAdminPanelsController < ApplicationController
   def index
     @user = current_user
     @event = Event.all.find(params[:event_id])
+    @place = Place.find(@event.place_id) if @event.place_id
     @characters = Character.where(organization_id: @event.organization_id)
     @posts = Post.where(event_id: @event.id)
     @post = @posts.last
@@ -10,8 +11,6 @@ class EventAdminPanelsController < ApplicationController
     @organizators = @organization.users if @organization
     @users = @event.users
     
-    render 'index'
-    
+    render 'index'    
   end
-
 end

@@ -7,5 +7,4 @@ class UserOrganizationsController < ApplicationController
           format.html { redirect_to organizations_url, notice: 'You have joined ' + organization.name + ' event successfully' }
         end
   end
-
 end

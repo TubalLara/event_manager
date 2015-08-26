@@ -3,37 +3,29 @@ class PlacesController < ApplicationController
   def index
     @places = Place.all
   end
-
   # GET /places/1
   def show
     @place = Place.find(params[:id])
   end
-
   # GET /places/new
   def new
     @place = Place.new
   end
-
   # GET /places/1/edit
   def edit
     @place = Place.find(params[:id])
   end
-
   # POST /places
   def create
     @place = Place.new(place_params)
-
     respond_to do |format|
       if @place.save
-        
         format.html { redirect_to @place, notice: 'Place was successfully created.' }
-
       else
         format.html { render :new }
       end
     end
   end
-
   # PATCH/PUT /places/1
   def update
     @place = Place.find(params[:id])
@@ -45,7 +37,6 @@ class PlacesController < ApplicationController
       end
     end
   end
-
   # DELETE /places/1
   def destroy
     @place = Place.find(params[:id])
@@ -59,7 +50,5 @@ class PlacesController < ApplicationController
 	  def place_params
 	    params.require(:place).permit(
 	      :name, :direction, :url, :postal_code)
-	  end
-
-	
+	  end	
 end

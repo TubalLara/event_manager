@@ -18,10 +18,8 @@
   <div class="form-group">
     <%= f.label :introduction %><br>
     <%= f.text_field :introduction %>
-  </div>
-  
-  
-  <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>  
+  <%= f.hidden_field :creator_id, :value => current_user.id %>
   <div class="form-group">
     Organization: <br>
     <%= (f.select :organization_id, current_user.organizations.collect { |p| [ p.name, p.id ] }, include_blank: true) if current_user.organizations %>

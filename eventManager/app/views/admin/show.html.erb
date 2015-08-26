@@ -1,28 +1,26 @@
-<div class="row">
-  
-  <div class="col-md-8">
+<div class="row">  
+  <div class="col-xs-8">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
       <li role="presentation"><a href="#organizations" aria-controls="organizations" role="tab" data-toggle="tab">Organizations</a></li>
       <li role="presentation"><a href="#characters" aria-controls="characters" role="tab" data-toggle="tab">Characters</a></li>
-      <li role="presentation"><a href="#events" aria-controls="events" role="tab" data-toggle="tab">Events</a></li>
+      <!-- <li role="presentation"><a href="#events" aria-controls="events" role="tab" data-toggle="tab">Events</a></li> -->
     </ul>
-
     <!-- Tab panes -->
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane" id="home">Home page for the admin</div>
-      <div role="tabpanel" class="tab-pane active" id="organizations">
-        
+      <div role="tabpanel" class="tab-pane active" id="home">Home page for the admin
+
+      </div>
+      <div role="tabpanel" class="tab-pane" id="organizations">
+        <%= render "organizations/index" %>
       </div>
       <div role="tabpanel" class="tab-pane" id="characters">Here comes your characters
-        
+        <%= render "characters/index" %>     
       </div>
-      <div role="tabpanel" class="tab-pane" id="events"> 
-          
-      </div>
-    </div>
-
-  
+      <!-- <div role="tabpanel" class="tab-pane" id="events">
+             
+      </div> -->
+    </div>  
   </div>
 </div>

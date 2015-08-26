@@ -8,5 +8,4 @@ class AssignedCharactersController < ApplicationController
       format.html { redirect_to characters_url, notice: 'You have joined this character to ' + event.name + ' event successfully' }
     end
   end
-
 end
