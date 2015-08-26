@@ -18,14 +18,23 @@
   <div class="form-group">
     <%= f.label :introduction %><br>
     <%= f.text_field :introduction %>
-  </div>  
+  </div>
+  
   <%= f.hidden_field :creator_id, :value => current_user.id %>
   <div class="form-group">
     Organization: <br>
     <%= (f.select :organization_id, current_user.organizations.collect { |p| [ p.name, p.id ] }, include_blank: true) if current_user.organizations %>
   </div>
-  
-  <div>
-    <%= f.submit %>
-  </div
+  <% if @event %>
+    <div>
+      
+      <%= hidden_field_tag 'event_id', @event.id %>
+      <%= f.submit %>
+    </div>
+  <% else %>
+    <div>
+      <%= f.submit %>
+    </div>
+
+  <% end %>
 <% end %>

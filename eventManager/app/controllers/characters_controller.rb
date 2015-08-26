@@ -14,7 +14,8 @@ class CharactersController < ApplicationController
   def new    
     @character = Character.new
     @user = current_user
-    @organizations = @user.organizations    
+    @organizations = @user.organizations  
+    @event = Event.find(params[:event_id])  
   end
   # GET /characters/1/edit
   def edit
@@ -24,8 +25,11 @@ class CharactersController < ApplicationController
   def create
     @character = Character.new(character_params)
     @user = current_user
+    @event = Event.find(params[:event_id]) if :event_id
+    
     respond_to do |format|
-      if @character.save        
+      if @character.save 
+        @character.is_part_of(@event) if @event      
         format.html { redirect_to @character, notice: 'Character was successfully created.' }
       else
         format.html { render :new }

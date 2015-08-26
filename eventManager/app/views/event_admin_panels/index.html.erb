@@ -30,7 +30,7 @@
         <% end %>
         </div>
       
-      <div role="tabpanel" class="tab-pane" id="characters">Here comes your characters
+      <div role="tabpanel" class="tab-pane" id="characters">
       <% if @characters %>
         <%= render partial: "characters/index", :locals => {:characters => @characters, :event => @event}  %>
       <% end %>

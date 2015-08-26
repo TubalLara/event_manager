@@ -17,6 +17,7 @@
 		<div class="col-xs-12">
 			<nav class="navbar navbar-default">			  
 			    <div id="top_bar">
+			    <a href="/"> <img src="/larp-peque.png" alt="larp manager logo" style="height="120"; width="120" "> </a>
 				    <% if logged_in? %>
 					    <span>
 					    	<%= image_tag current_user.avatar.url(:thumb) %>
@@ -49,6 +50,11 @@
 		
 	</div>
 </div>	
+<footer class="footer">
+	<div class="container">
+		Back
+	</div>
+</footer>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
