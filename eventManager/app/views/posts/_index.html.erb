@@ -1,7 +1,13 @@
 
   
   <!-- <h2 class="bg-primary">Listing Posts</h1> -->
-  <%= link_to 'New Post', new_post_path, role: "button", class: "btn btn-success" %>
+  
+  <%if @character%>
+    Posts of <%= @character.name%> character<br>
+    <%= link_to 'New Post', new_post_path(character_id: @character.id), role: "button", class: "btn btn-success" %>
+  <%else%>
+    <%= link_to 'New Post', new_post_path, role: "button", class: "btn btn-success" %>
+  <% end %>
   <div class="table-responsive">
     <table class="table table-hover">
       <thead>
@@ -22,7 +28,7 @@
           </tr>
         <% end %>
         <% end %>
-        
+
 
       </tbody>
       

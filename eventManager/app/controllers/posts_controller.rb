@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = Post.all
+
   end
   # GET /posts/1
   def show    
@@ -11,6 +12,7 @@ class PostsController < ApplicationController
   def new    
     @post = Post.new    
     @user = current_user
+    @character = Event.find(params[:character_id])
   end
   # GET /posts/1/edit
   def edit
@@ -19,8 +21,11 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     @post = Post.new(post_params)
+    
     respond_to do |format|
-      if @post.save        
+      if @post.save   
+        
+        @post.character_id = params[:character_id]   
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
       else
         format.html { render :new }

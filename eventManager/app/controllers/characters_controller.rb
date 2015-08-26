@@ -4,18 +4,19 @@ class CharactersController < ApplicationController
     @characters = Character.all       
   end
   # GET /characters/1
-  def show    
+  def show
     @character = Character.find(params[:id])
     @creator = User.all.find(@character.creator_id) if @character.creator_id
     @user = User.all.find(@character.user_id) if @character.user_id
-    @organization = Organization.all.find(@character.organization_id) if @character.organization_id 
+    @organization = Organization.all.find(@character.organization_id) if @character.organization_id
+    @posts = Post.where(character_id: params[:id])
   end
   # GET /characters/new
   def new    
     @character = Character.new
     @user = current_user
     @organizations = @user.organizations  
-    @event = Event.find(params[:event_id])  
+    @event = Event.find(params[:event_id]) if params[:event_id]
   end
   # GET /characters/1/edit
   def edit

@@ -1,11 +1,11 @@
-<div class="row">  
-  <div class="col-xs-4">
+<div class="row">
+  <div class="col-xs-12">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
       <li role="presentation"><a href="#organizations" aria-controls="organizations" role="tab" data-toggle="tab">Organizations</a></li>
       <li role="presentation"><a href="#characters" aria-controls="characters" role="tab" data-toggle="tab">Characters</a></li>
-      <!-- <li role="presentation"><a href="#events" aria-controls="events" role="tab" data-toggle="tab">Events</a></li> -->
+      <li role="presentation"><a href="#events" aria-controls="events" role="tab" data-toggle="tab">Events</a></li>
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
@@ -18,9 +18,9 @@
       <div role="tabpanel" class="tab-pane" id="characters">Here comes your characters
         <%= render "characters/index" %>     
       </div>
-      <!-- <div role="tabpanel" class="tab-pane" id="events">
-             
-      </div> -->
+      <div role="tabpanel" class="tab-pane" id="events">
+        <%= render "events/index" %>    
+      </div>
     </div>  
   </div>
   

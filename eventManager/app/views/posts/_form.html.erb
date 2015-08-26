@@ -21,8 +21,14 @@
     <%= f.text_area :content, size: "60x10", style: "overflow-y: scroll; margin-bottom: 12px;"%>
   </div>
   <%= f.hidden_field :user_id, :value => current_user.id %>
-
-  <div>
-    <br><%= f.submit %>
-  </div>
+  <% if @character %>
+    <div>      
+      <%= f.hidden_field :character_id, :value => @character.id %>
+      <%= f.submit %>
+    </div>
+  <% else %>
+    <div>
+      <br><%= f.submit %>
+    </div>
+  <% end %>
 <% end %>
