@@ -1,5 +1,5 @@
 class EventAdminPanelsController < ApplicationController
-
+  before_action :admin_only
   def index
     @user = current_user
     @event = Event.all.find(params[:event_id])

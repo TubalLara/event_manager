@@ -1,5 +1,5 @@
 <div class="row">	
-	<div class="col-xs-8">
+	<div class="col-xs-12">
 		<!-- Nav tabs -->
 	  <ul class="nav nav-tabs" role="tablist">
 	    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
@@ -9,17 +9,26 @@
 	  </ul>
 	  <!-- Tab panes -->
 	  <div class="tab-content">
-	    <div role="tabpanel" class="tab-pane active" id="home">Home page for the user
-				<%= render 'posts/show' if @post%>
+	    <div role="tabpanel" class="tab-pane active" id="home">
+				<div style="overflow-y: scroll; margin-bottom: 12px;">
+      		Home page for the user
+					<%= render 'posts/show' if @post%>
+    		</div>    
 	    </div>
 	    <div role="tabpanel" class="tab-pane" id="profile">
-	    	<%= render 'users/show' %>
+	    	<div style="overflow-y: scroll; margin-bottom: 12px;">
+      		<%= render 'users/show' %>
+    		</div>    	
 	    </div>
-	    <div role="tabpanel" class="tab-pane" id="characters">Here comes your characters
-				<%= render partial: "characters/index", :locals => {:characters => @characters}  %>
+	    <div role="tabpanel" class="tab-pane" id="characters">				
+				<div style="overflow-y: scroll; margin-bottom: 12px;">
+      		<%= render partial: "characters/index", :locals => {:characters => @characters}  %>
+    		</div>
 	    </div>
-	    <div role="tabpanel" class="tab-pane" id="events"> 
-	      	<%= render partial: "events/index", :locals => {:events => @events}  %>
+	    <div role="tabpanel" class="tab-pane" id="events"> 	      	
+	    		<div style="overflow-y: auto; margin-bottom: 12px;">
+      			<%= render partial: "events/index", :locals => {:events => @events}  %>
+    		</div>
 	    </div>
 	  </div>	
 	</div>

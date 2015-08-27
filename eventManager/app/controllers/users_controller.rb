@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   # before_action :authorize_user, only: [:show]
-  # before_action :admin_only, only: [:index]
+  before_action :authorize_user, only: [:edit]
+  before_action :admin_only, only: [:index]
   # GET /users
   def index
     @users = User.all    
