@@ -10,6 +10,7 @@ class CharactersController < ApplicationController
     @user = User.all.find(@character.user_id) if @character.user_id
     @organization = Organization.all.find(@character.organization_id) if @character.organization_id
     @posts = Post.where(character_id: params[:id])
+    @post = @posts.last
   end
   # GET /characters/new
   def new    

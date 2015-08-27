@@ -1,34 +1,34 @@
 
   <div class="col-xs-4">
-    <p>
+    <div class="well">
       <strong>Name:</strong></br>
       <%= @event.name %>
-    </p>
+    </div>
 
-    <p>
+    <div class="well">
       <strong>Introduction:</strong></br>
       <%= @event.introduction %>
-    </p>
+    </div>
 
-    <p>
+    <div class="well">
       <strong>Place:</strong></br>
       <%= @place.name if @place%>
-    </p>
+    </div>
 
-    <p>
+    <div class="well">
       <strong>Organization:</strong></br>
       <%= @organization.name if @organization%>
-    </p>
+    </div>
 
-    <p>
+    <div class="well">
       <strong>From:</strong></br>
       <%= @event.begin_date %>
-    </p>
+    </div>
 
-    <p>
+    <div class="well">
       <strong>To:</strong></br>
       <%= @event.finish_date %>
-    </p>
+    </div>
 
     <%= link_to 'Edit', edit_event_path(@event) %> |
     <%= link_to 'Back', events_path %>

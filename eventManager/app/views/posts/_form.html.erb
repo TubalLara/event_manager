@@ -20,7 +20,7 @@
     <%= f.label :content %><br>
     <%= f.text_area :content, size: "60x10", style: "overflow-y: scroll; margin-bottom: 12px;"%>
   </div>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id if current_user%>
   <% if @character %>
     <div>      
       <%= f.hidden_field :character_id, :value => @character.id %>

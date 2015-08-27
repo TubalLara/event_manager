@@ -1,10 +1,8 @@
-
-  
-  <!-- <h2 class="bg-primary">Listing Posts</h1> -->
-  
   <%if @character%>
-    Posts of <%= @character.name%> character<br>
+  <div class="alert alert-info">
+    <h2>Posts of <%= @character.name%> character</h2><br>
     <%= link_to 'New Post', new_post_path(character_id: @character.id), role: "button", class: "btn btn-success" %>
+  </div>
   <%else%>
     <%= link_to 'New Post', new_post_path, role: "button", class: "btn btn-success" %>
   <% end %>
@@ -16,7 +14,6 @@
           <th colspan="3"></th>
         </tr>
       </thead>
-
       <tbody>
         <% if @posts %>
         <% @posts.each do |post| %>
@@ -28,10 +25,7 @@
           </tr>
         <% end %>
         <% end %>
-
-
-      </tbody>
-      
+      </tbody>      
     </table>
   </div>
   

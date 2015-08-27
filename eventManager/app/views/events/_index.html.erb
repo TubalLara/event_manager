@@ -1,5 +1,7 @@
-<h2 class="bg-primary">Listing Events</h1>
-<%= link_to 'New Event', new_event_path, role: "button", class: "btn btn-success"  %>
+<div class="alert alert-info">
+  <h2>Listing Events</h2>
+  <%= link_to 'New Event', new_event_path, role: "button", class: "btn btn-success"  %>
+</div>
 <div class="table-responsive">
   <table class="table table-hover">
     <thead>
@@ -16,12 +18,13 @@
     <tbody>
       <% @events.each do |event| %>
         <tr>
-          <td><%= link_to 'Join', attendances_path(event_id: event.id), method: :post, role: "button", class: "btn btn-success"%> <br> </td>
+          
           <td><%= event.name %> <br> </td>
           <td><%= event.introduction %> <br> </td>
           <td><%= event.places.name if event.places %> <br> </td>        
           <td><%= event.begin_date %> <br> </td>
           <td><%= event.finish_date %> <br> </td>
+          <td><%= link_to 'Join', attendances_path(event_id: event.id), method: :post, role: "button", class: "btn btn-success"%> <br> </td>
           <td><%= link_to 'Show', event, role: "button", class: "btn btn-default" %> <br> </td>
           <% if current_user && current_user.role === "admin" %>
             <td><%= link_to 'Edit', edit_event_path(event), role: "button", class: "btn btn-default" %> <br> </td>

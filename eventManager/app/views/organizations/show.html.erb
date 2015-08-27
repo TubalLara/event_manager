@@ -1,19 +1,19 @@
 <div class="row">
   <div class="col-xs-4">
-    <p>
+    <div class="well">
       <strong>Name:</strong>
       <%= @organization.name %>
-    </p>
+    </div>
 
-    <p>
+    <div class="well">
       <strong>Description:</strong>
       <%= @organization.description %>
-    </p>
+    </div>
 
-    <p>
+    <div class="well">
       <strong>Url:</strong>
       <a target ="blank" href=<%= @organization.url %>><%= @organization.url %></a> 
-    </p>
+    </div>
 
 
     <%= link_to 'Edit', edit_organization_path(@organization) %> |

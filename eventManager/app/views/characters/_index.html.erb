@@ -1,10 +1,12 @@
 <!-- <h2 class="bg-primary">Listing Characters</h1> -->
-<%if @event%>
-  Characters of <%= @event.name%> event<br>
-  <%= link_to 'New Character', new_character_path(event_id: @event.id), role: "button", class: "btn btn-success"%>
-<%else%>
-  <%= link_to 'New Character', new_character_path, role: "button", class: "btn btn-success"  %>
-<%end%>
+<div class="alert alert-info">
+  <%if @event%>    
+    <h2>Characters of <%= @event.name%> event</h2><br>
+    <%= link_to 'New Character', new_character_path(event_id: @event.id), role: "button", class: "btn btn-success"%>
+  <%else%>
+    <%= link_to 'New Character', new_character_path, role: "button", class: "btn btn-success"  %>
+  <%end%>
+</div>
 <div class="table-responsive">
     <%if @characters%>
       <table class="table table-hover">
@@ -16,7 +18,6 @@
             <th colspan="3"></th>
           </tr>
         </thead>
-
         <tbody>
           <% @characters.each do |character|%>
             <tr>
@@ -32,10 +33,10 @@
             </tr>
           <% end %>
         </tbody>
-      </table>
-    <br>
-
+      </table><br>
     <% else %>
-    You have no characters yet.
+      <div class="alert alert-warning">
+        You have no characters yet.
+      </div>
     <% end %>
  </div> 

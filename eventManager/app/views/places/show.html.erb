@@ -1,24 +1,24 @@
 
 	<div class="col-xs-4">
-		<p>
+		<div class="well">
 		  <strong>Name:</strong>
 		  <%= @place.name %>
-		</p>
+		</div>
 
-		<p>
+		<div class="well">
 		  <strong>Direction:</strong>
 		  <%= @place.direction %>
-		</p>
+		</div>
 
-		<p>
+		<div class="well">
 		  <strong>Url:</strong>
 		  <a target ="blank" href=<%= @place.url %>><%= @place.url %></a> 
-		</p>
+		</div>
 
-		<p>
+		<div class="well">
 		  <strong>Postal Code:</strong>
 		  <%= @place.postal_code %>
-		</p>
+		</div>
 
 		<%= link_to 'Edit', edit_place_path(@place) %> |
 		<%= link_to 'Back', places_path %>
