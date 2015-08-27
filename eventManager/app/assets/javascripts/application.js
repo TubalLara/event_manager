@@ -13,4 +13,5 @@
 //= require jquery
 //= require text_editor.js
 //= require jquery_ujs
+//= require sessions.js
 //= require_tree .

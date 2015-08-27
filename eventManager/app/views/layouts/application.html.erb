@@ -10,32 +10,44 @@
 	  <%= csrf_meta_tags %>
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-	  <link rel="stylesheet" href="/main.css />
+	  <link rel="stylesheet" href="/main.css" />
 </head>
-<body padding-top: "70px">
+<body padding-top: "70px" class="modal-open">
 <div class="container">
-	<div class="row">
+	<div class="row">		
 		<div class="col-xs-12">
 			<nav class="navbar navbar-default">			  
 			    <div id="top_bar">
-			    <a href="/"> <img src="/larp-peque.png" alt="larp manager logo" style="height="120"; width="120"> </a>
-				    <% if logged_in? %>
-					    <span id="photo_avatar">
-					    	<%= image_tag current_user.avatar.url(:thumb) %>
-					    </span>				    	
-				      <span > <p id="user_greetings"> Hello,  <%= current_user.name %> - </p></span>
-				      <span id="log" class="label">
-				      	<% if current_user.role == "admin" %>
-				      		<%= link_to 'Admin Panel', admin_path%> |
-				      	<% end%>
-				      	<%= link_to 'Logout', logout_path, method: :delete %> |
-								<%= link_to 'Profile', welcome_path%>					
-				      </span>		      
+				    <div class="row">
+				    	<span style= padding-right="95">
+					    	<a href="/" > <img src="/larp-peque.png" alt="larp manager logo" style= height="120"; width="120"; > </a>
+					    </span>
+						    <% if logged_in? %>
+							    <span id="photo_avatar">
+							    	<%= image_tag current_user.avatar.url(:thumb) %>
+							    </span>	
+						</div>
+					  <div class="row">
+					    <div class="col-xs-6">
+					    	<div class="well" id="user_greetings"><strong> Hello,  <%= current_user.name %> -</strong> </div>		 
+					    </div> 
+					    <div class="col-xs-6">    
+					      <div class="well">				      	
+					      	<% if current_user.role == "admin" %>
+					      		<span id="log"><%= link_to 'Admin Panel', admin_path%> |<span>
+					      	<% end%>
+						      	<span id="log">
+							      	<%= link_to 'Logout', logout_path, method: :delete %> |
+											<%= link_to 'Profile', welcome_path%>
+										</span>					
+					      </div>		      
+				      </div>	
+				    </div>	      
 				    <% else %>
-				    	<span id="log" class="label label-success">
+				    	<div class="well" id="log_in">
 				      	  <%= link_to 'Signup', signup_path %> |
 				      	  <%= link_to 'Login', login_path %>
-				    	</span>
+				    	</div>
 				    <% end %>				    
 				</div>			  
 			</nav>		
@@ -44,24 +56,35 @@
 			<% end %>	  
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-xs-12">
-			<%= yield %>
+	<div class="row">		
+		<div class="col-xs-3">
+			<div class="list-group">
+  			<a href="/events" class="list-group-item active">Events</a>
+			  <a href="/organizations" class="list-group-item">Organizations</a>
+			  <a href="/" class="list-group-item active">Profile</a>
+			  <% if current_user && current_user.role === "admin"%>
+				  <a href="#" class="list-group-item">Users</a>
+				  <a href="#" class="list-group-item active">Characters</a>
+				<%end%>
+				<% if current_user && current_user.role === "superadmin"%>
+				  <a href="#" class="list-group-item">Users</a>
+				  <a href="#" class="list-group-item active">Characters</a>
+				  <a href="#" class="list-group-item">Posts</a>
+				<%end%>
+			</div>
 		</div>
-		
+		<div class="col-xs-9">
+			<%= yield %>
+		</div>		
 	</div>
 </div>	
-<footer class="footer">
-	<div class="container">
-		Back
-	</div>
+<footer class="footer">	
 </footer>
-
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
-<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>						
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 
 </body>
 </html>

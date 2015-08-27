@@ -1,5 +1,4 @@
-<div class="row">
-	
+<div class="row">	
 	<div class="col-xs-8">
 		<!-- Nav tabs -->
 	  <ul class="nav nav-tabs" role="tablist">
@@ -8,10 +7,11 @@
 	    <li role="presentation"><a href="#characters" aria-controls="characters" role="tab" data-toggle="tab">Characters</a></li>
 	    <li role="presentation"><a href="#events" aria-controls="events" role="tab" data-toggle="tab">Events</a></li>
 	  </ul>
-
 	  <!-- Tab panes -->
 	  <div class="tab-content">
-	    <div role="tabpanel" class="tab-pane active" id="home">Home page for the user</div>
+	    <div role="tabpanel" class="tab-pane active" id="home">Home page for the user
+				<%= render 'posts/show' if @post%>
+	    </div>
 	    <div role="tabpanel" class="tab-pane" id="profile">
 	    	<%= render 'users/show' %>
 	    </div>
@@ -21,8 +21,6 @@
 	    <div role="tabpanel" class="tab-pane" id="events"> 
 	      	<%= render partial: "events/index", :locals => {:events => @events}  %>
 	    </div>
-	  </div>
-
-	
+	  </div>	
 	</div>
 </div>

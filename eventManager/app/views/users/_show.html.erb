@@ -1,11 +1,9 @@
 <div class="row">
   <div class="col-xs-4">
-
     <div class="well">
       <strong>Name:</strong>
       <%= @user.name %>
     </div>
-
     <div class="well">
       <strong>Email:</strong>
       <%= @user.email %>
@@ -14,11 +12,11 @@
       <strong>Avatar:</strong>
       <%= image_tag @user.avatar.url(:medium) %>
     </div>
-
-    <%= link_to 'Edit', edit_user_path(@user) %> |
+    <% if (current_user.role === "admin") || (@user.id === current_user.id) %>
+      <%= link_to 'Edit', edit_user_path(@user) %> |
+    <% end %>
     <%= link_to 'Back', root_path %>
   </div>
-  <div class="col-md-8">
-    
+  <div class="col-md-8">    
   </div>
 </div>

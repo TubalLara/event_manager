@@ -1,34 +1,33 @@
-  <div class="alert alert-info">
-    <h2>Listing Places</h2>
-    <%= link_to 'New Place', new_place_path, role: "button", class: "btn btn-success" %>
-  </div>
-  <div class="table-responsive">
-    <table class="table table-hover">
-      <thead>
+<div class="alert alert-info">
+  <h2>Listing Places</h2>
+  <%= link_to 'New Place', new_place_path, role: "button", class: "btn btn-success" %>
+</div>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Direction</th>
+        <th>Url</th>
+        <th>Postal Code</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @places.each do |place| %>
         <tr>
-          <th>Name</th>
-          <th>Direction</th>
-          <th>Url</th>
-          <th>Postal Code</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @places.each do |place| %>
-          <tr>
-            <td><%= place.name %> <br> </td>
-            <td><%= place.direction %> <br> </td>
-            <td><a target ="blank" href=<%= place.url %>><%= place.url %></a> <br> </td>
-            <td><%= place.postal_code %> <br> </td>
-            <td><%= link_to 'Show', place, role: "button", class: "btn btn-default" %> <br> </td>
+          <td><%= place.name %> <br> </td>
+          <td><%= place.direction %> <br> </td>
+          <td><a target ="blank" href=<%= place.url %>><%= place.url %></a> <br> </td>
+          <td><%= place.postal_code %> <br> </td>
+          <td><%= link_to 'Show', place, role: "button", class: "btn btn-default" %> <br> </td>
+          <% if (current_user.role === "superadmin") %>
             <td><%= link_to 'Edit', edit_place_path(place), role: "button", class: "btn btn-default"%> <br> </td>
             <td><%= link_to 'Destroy', place, method: :delete, role: "button", class: "btn btn-default", data: { confirm: 'Are you sure?' } %> </td>
-          </tr>
-        <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>      
+  </table>
+</div>
 
-      </tbody>
-      
-    </table>
-  </div>
-  

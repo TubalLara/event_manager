@@ -1,36 +1,38 @@
-  <div class="col-xs-4">
-    <div class="well">
-      <strong>Name:</strong></br>
-      <%= @character.name %>
-    </div>
-    <div class="well">
-      <strong>Introduction:</strong></br>
-      <%= @character.introduction %>
-    </div>
-    <div class="well">
-      <strong>Creator:</strong></br>
-      <%= @creator.name if @creator%>
-    </div>
-    <div class="well">
-      <strong>Player:</strong></br>
-      <%= @user.name if @user%>
-    </div>
-    <div class="well">
-      <strong>Organization:</strong></br>
-      <%= @organization.name if @organization%>
-    </div>
-    <div class="well">
-      <strong>Event:</strong></br>
-      <%= @character.events.last.name if @character.events.last %>
-    </div>
-    <%= link_to 'Edit', edit_character_path(@character) %> |
-    <%= link_to 'Back', characters_path %>
+<div class="col-xs-4">
+  <div class="well">
+    <strong>Name:</strong></br>
+    <%= @character.name %>
   </div>
-  <div class="col-xs-8">    
-    
+  <div class="well">
+    <strong>Introduction:</strong></br>
+    <%= @character.introduction %>
+  </div>
+  <div class="well">
+    <strong>Creator:</strong></br>
+    <%= @creator.name if @creator%>
+  </div>
+  <div class="well">
+    <strong>Player:</strong></br>
+    <%= @user.name if @user%>
+  </div>
+  <div class="well">
+    <strong>Organization:</strong></br>
+    <%= @organization.name if @organization%>
+  </div>
+  <div class="well">
+    <strong>Event:</strong></br>
+    <%= @character.events.last.name if @character.events.last %>
+  </div>
+  <% if current_user && ((current_user.role === "admin") || (@character.creator_id === current_user.id)) %>
+    <%= link_to 'Edit', edit_character_path(@character) %> |
+  <% end %>
+  <%= link_to 'Back', characters_path %>
+</div>
+<div class="col-xs-8">    
+  <% if @posts && @post%>
     <%= render partial: "posts/index", :locals => {:character => @character}  %>
     <%= render partial: "posts/show", :locals => {:character => @character}  %>
-  
-  </div>
-  
+  <%end%>  
+</div>
+
 

@@ -2,7 +2,6 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = Post.all
-
   end
   # GET /posts/1
   def show    
@@ -20,8 +19,7 @@ class PostsController < ApplicationController
   end
   # POST /posts
   def create
-    @post = Post.new(post_params)
-    
+    @post = Post.new(post_params)    
     respond_to do |format|
       if @post.save   
         

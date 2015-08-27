@@ -1,9 +1,7 @@
-
 <%= form_for(@organization) do |f| %>
   <% if @organization.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@organization.errors.count, "error") %> prohibited this place from being saved:</h2>
-
       <ul>
       <% @organization.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,7 +9,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="input-group">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -25,7 +22,6 @@
     <%= f.text_field :url %>
   </div>
   <%= f.hidden_field :creator_id, :value => current_user.id %>
-
   <div>
     <br><%= f.submit %>
   </div>

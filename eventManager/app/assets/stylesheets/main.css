@@ -1,13 +1,15 @@
 #photo_avatar {
   float: right;
   padding-top: 5px;
+  padding-right: 25px;
 }
 
 #user_greetings {
   margin-left: 30px;
-
+  padding-left: 300px;
 }
 
 #log {
-  
+  padding-left: 430px;
 }
+

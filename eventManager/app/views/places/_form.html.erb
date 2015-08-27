@@ -1,9 +1,7 @@
-
 <%= form_for(@place) do |f| %>
   <% if @place.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@place.errors.count, "error") %> prohibited this place from being saved:</h2>
-
       <ul>
       <% @place.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,7 +9,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="input-group">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -28,7 +25,6 @@
     <%= f.label :url %><br>
     <%= f.text_field :url %>
   </div>
-
   <div>
     <br><%= f.submit %>
   </div>

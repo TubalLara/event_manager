@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
     
     @events = current_user.events.future_events(Date.today) if current_user.events
     @characters = @user.characters if @user.characters
+    @post = @user.posts.last if @user.posts
     render 'show'    
   end
 
@@ -12,8 +13,10 @@ class WelcomeController < ApplicationController
     if @user
       @events = current_user.events.future_events(Date.today) if current_user.events
       @characters = @user.characters if @user.characters
+      @post = @user.posts.last if @user.posts
       render 'show'
     else
+      @post = Post.last
       render 'index'
     end
   end

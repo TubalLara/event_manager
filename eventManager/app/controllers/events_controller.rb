@@ -12,7 +12,6 @@ class EventsController < ApplicationController
       event.places = @place
     end
   end
-
   # GET /events/1
   def show
     @places = Place.all

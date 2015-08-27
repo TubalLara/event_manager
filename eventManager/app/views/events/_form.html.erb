@@ -1,9 +1,7 @@
-
 <%= form_for(@event) do |f| %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
       <ul>
       <% @event.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,7 +9,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -41,8 +38,7 @@
   <div class="form-group">
     You want the event to be secret for now? 
     Yes: <%= f.radio_button(:is_secret, true) %>
-    No: <%= f.radio_button(:is_secret, false) %>
-    
+    No: <%= f.radio_button(:is_secret, false) %>    
   </div>
   <%= f.hidden_field :creator_id, :value => current_user.id %>
   <div>

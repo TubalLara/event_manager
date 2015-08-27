@@ -9,10 +9,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "60x60>" }, :default_url => ":style/missing.png"
-  validates_attachment_content_type :avatar, content_type: /\Aimage/
-  # Validate filename
-  # validates_attachment_file_name :avatar, matches: [/\.(jpg|png|gif)\b/]
- 
+  validates_attachment_content_type :avatar, content_type: /\Aimage/ 
 
 	validates :name,  presence: true, length: { maximum: 50 }
   	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -20,7 +17,6 @@ class User < ActiveRecord::Base
                 	format: { with: VALID_EMAIL_REGEX },
                 	uniqueness: { case_sensitive: false }
   	validates :password, presence: true, length: { minimum: 8 }
-
 
   	after_initialize :set_default_role, :if => :new_record?
   	def set_default_role
@@ -36,7 +32,4 @@ class User < ActiveRecord::Base
     def works_at(organization)
       user_organizations.create(organization_id: organization.id)
     end
-
-    
-
 end

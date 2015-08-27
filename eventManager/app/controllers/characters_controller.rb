@@ -27,8 +27,7 @@ class CharactersController < ApplicationController
   def create
     @character = Character.new(character_params)
     @user = current_user
-    @event = Event.find(params[:event_id]) if :event_id
-    
+    @event = Event.find(params[:event_id]) if :event_id    
     respond_to do |format|
       if @character.save 
         @character.is_part_of(@event) if @event      
