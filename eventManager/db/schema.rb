@@ -37,7 +37,8 @@ ActiveRecord::Schema.define(version: 20150825103510) do
     t.integer  "user_id"
     t.integer  "organization_id"
     t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "updated_ +
+    996at",      null: false
     t.integer  "creator_id"
   end
 
